@@ -1,0 +1,639 @@
+/* ==============================================================
+   Design System & Layout - Palette: #253C6D, #263997 & #4CA2D9
+   Warna Utama: #253C6D (Deep Navy)
+   Warna Pendukung: #263997 (Royal Blue), #4CA2D9 (Cerulean Sky), #FFFFFF (Pure White)
+   Praktikum DPBO Modul 8 - Universitas Pendidikan Indonesia
+   ============================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --brand-navy: #253C6D;         /* Navy blue utama #253C6D */
+    --brand-navy-dark: #1D3057;    /* Navy pekat untuk hover & gradient */
+    --brand-red: var(--brand-navy); /* Alias kompatibilitas view */
+    --brand-red-dark: var(--brand-navy-dark);
+    --brand-blue: #263997;         /* Warna pendukung: Royal Blue #263997 */
+    --brand-sky: #4CA2D9;          /* Warna pendukung: Cerulean Sky #4CA2D9 */
+    --brand-rose: var(--brand-blue);  /* Alias kompatibilitas */
+    --brand-blush: var(--brand-sky);  /* Alias kompatibilitas */
+    --bg-cream: #FFFFFF;           /* Latar putih (sebelumnya krem) */
+    --bg-card: #FFFFFF;
+    --text-main: #0F172A;          /* Hitam pekat untuk heading */
+    --text-muted: #546478;         /* Netral halus untuk deskripsi */
+    --border-subtle: #E2E8F0;      /* Border netral halus */
+    --btn-dark: #0F172A;           /* Tombol charcoal / hitam pekat */
+    --bg-page: #FFFFFF;            /* Latar belakang halaman putih #FFFFFF */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-muted);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Identitas Mahasiswa Banner */
+.student-banner {
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: #0F172A;
+    color: #F8FAFC;
+    padding: 8px 0;
+    border-bottom: 2px solid var(--brand-red);
+}
+
+.student-banner span {
+    letter-spacing: 0.2px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.page-title, .section-title, .card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.page-title {
+    font-size: 1.85rem;
+    margin-bottom: 0.35rem;
+}
+
+/* ==============================================================
+   NAVBAR DENGAN LOGO UPI FPMIPA & BRAND ITCAREER
+   ============================================================== */
+.navbar-itcareer {
+    background-color: #FFFFFF !important;
+    border-bottom: 2px solid var(--brand-blush);
+    box-shadow: 0 2px 12px rgba(37, 60, 109, 0.05);
+    padding: 0.85rem 0;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-upi-fpmipa {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-divider {
+    border-right: 1.5px solid var(--brand-blush);
+    height: 30px;
+    margin: 0 14px;
+    display: inline-block;
+}
+
+.brand-text {
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.brand-it {
+    font-weight: 800;
+    color: #0F172A;
+}
+
+.brand-career {
+    font-weight: 800;
+    color: var(--brand-red);
+}
+
+.nav-links-center, .nav-links-end {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+}
+
+@media (max-width: 991.98px) {
+    .nav-links-end {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+.nav-link-itcareer {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 6px 0;
+    position: relative;
+}
+
+.nav-link-itcareer:hover {
+    color: var(--brand-red);
+}
+
+.nav-link-itcareer.active {
+    color: var(--brand-red);
+}
+
+.nav-link-itcareer.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background-color: var(--brand-red);
+    border-radius: 9999px;
+}
+
+/* ==============================================================
+   PILL BADGES (NAVY #253C6D, ROYAL BLUE #263997, CERULEAN SKY #4CA2D9, HITAM)
+   ============================================================== */
+.badge-pill-red, .badge-pill-navy {
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: var(--brand-red);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-pill-rose, .badge-pill-blue {
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: var(--brand-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.badge-pill-blush, .badge-pill-sky, .badge-pill-gold {
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: var(--brand-sky);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.badge-pill-soft-red, .badge-pill-soft-blue {
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--brand-sky);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.badge-pill-dark {
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: var(--btn-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.badge-pill-white {
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-red);
+    background-color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+/* ==============================================================
+   TOMBOL FULL-PILL (NAVY #253C6D, HITAM, PUTIH, OUTLINE)
+   ============================================================== */
+.btn-pill {
+    border-radius: 9999px !important;
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* Tombol Utama: Navy #253C6D */
+.btn-pill-primary {
+    background-color: var(--brand-red) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-pill-primary:hover {
+    background-color: var(--brand-red-dark) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(37, 60, 109, 0.35);
+    transform: translateY(-1px);
+}
+
+/* Tombol Sekunder: Hitam Pekat */
+.btn-pill-dark {
+    background-color: var(--btn-dark) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-pill-dark:hover {
+    background-color: #1E293B !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+/* Tombol Putih untuk Kartu Navy Solid */
+.btn-pill-white {
+    background-color: #FFFFFF !important;
+    color: var(--brand-red) !important;
+}
+
+.btn-pill-white:hover {
+    background-color: #F1F5F9 !important;
+    color: var(--brand-red-dark) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.btn-pill-outline {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+    border: 1.5px solid var(--brand-blush) !important;
+}
+
+.btn-pill-outline:hover {
+    background-color: #FFFFFF !important;
+    border-color: var(--brand-red) !important;
+    color: var(--brand-red) !important;
+}
+
+.btn-pill-sm {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+}
+
+/* ==============================================================
+   FORM CONTROLS DENGAN FOCUS RING NAVY #253C6D
+   ============================================================== */
+.form-control, .form-select {
+    border-radius: 12px !important;
+    border: 1.5px solid var(--border-subtle) !important;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    outline: none !important;
+    border-color: var(--brand-red) !important;
+    box-shadow: 0 0 0 3px rgba(37, 60, 109, 0.15) !important;
+}
+
+.form-label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    margin-bottom: 0.35rem;
+}
+
+/* Container Card & Collapse */
+.card-custom {
+    border-radius: 20px;
+    box-shadow: 0 10px 25px -5px rgba(37, 60, 109, 0.05);
+    border: 1px solid var(--border-subtle);
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+/* ==============================================================
+   HALAMAN ENTITAS 1: JALUR KARIR (Alternating Cards)
+   ============================================================== */
+.track-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* Kartu Tipe A: Putih dengan sudut dekorasi Navy #253C6D */
+.track-card-a {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px -5px rgba(37, 60, 109, 0.04);
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-card-a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px -10px rgba(37, 60, 109, 0.15);
+    border-color: var(--brand-blue);
+}
+
+/* Blok sudut geometris Navy #253C6D di pojok kanan atas */
+.track-card-a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    background-color: var(--brand-red);
+    border-bottom-left-radius: 14px;
+}
+
+.track-card-a .track-title {
+    color: var(--text-main);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    padding-right: 28px;
+}
+
+.track-card-a .track-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+}
+
+.track-card-a .track-info-item {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.track-card-a .track-info-item strong {
+    color: var(--text-main);
+}
+
+/* Kartu Tipe B: Solid Navy #253C6D untuk Sorotan Utama */
+.track-card-b {
+    background-color: var(--brand-red);
+    border: 1px solid var(--brand-red-dark);
+    border-radius: 20px;
+    box-shadow: 0 14px 28px -6px rgba(37, 60, 109, 0.35);
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFFFFF;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-card-b:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 36px -8px rgba(37, 60, 109, 0.45);
+}
+
+/* Aksen sudut sky di kartu navy */
+.track-card-b::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    background-color: var(--brand-sky);
+    border-bottom-left-radius: 14px;
+}
+
+.track-card-b .track-title {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    padding-right: 28px;
+}
+
+.track-card-b .track-desc {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+}
+
+.track-card-b .track-info-item {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0.4rem;
+}
+
+.track-card-b .track-info-item strong {
+    color: #FFFFFF;
+}
+
+/* ==============================================================
+   HALAMAN ENTITAS 2: KURSUS IT (Thumbnail Banner Gradasi Maroon)
+   ============================================================== */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+    align-items: stretch;
+}
+
+.course-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px -5px rgba(37, 60, 109, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px -10px rgba(37, 60, 109, 0.15);
+    border-color: var(--brand-blue);
+}
+
+/* Thumbnail Banner Atas: Gradasi Navy #253C6D ke #1D3057 */
+.course-thumbnail {
+    background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+    padding: 1.5rem;
+    color: #FFFFFF;
+    position: relative;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+/* Ornamen geometris aksen Royal Blue #263997 & Cerulean Sky #4CA2D9 */
+.course-thumbnail::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 90px;
+    height: 90px;
+    border: 8px solid rgba(76, 162, 217, 0.45);
+    border-radius: 16px;
+    transform: rotate(25deg);
+}
+
+.course-thumbnail::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(38, 57, 151, 0.35);
+    border-radius: 8px;
+    transform: rotate(12deg);
+}
+
+.course-thumbnail .thumbnail-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--brand-sky);
+    margin-bottom: 0.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+.course-thumbnail .thumbnail-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.course-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-body .course-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.course-body .course-meta strong {
+    color: var(--text-main);
+}
+
+/* ==============================================================
+   HALAMAN ENTITAS 3: TALENTA (Modern Clean Table)
+   ============================================================== */
+.table-container-custom {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(37, 60, 109, 0.04);
+    overflow: hidden;
+}
+
+.table-custom {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.table-custom thead th {
+    background-color: #F8FAFC !important;
+    color: var(--text-main) !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    padding: 14px 18px !important;
+    border-bottom: 1.5px solid var(--brand-sky) !important;
+}
+
+.table-custom tbody td {
+    padding: 14px 18px !important;
+    vertical-align: middle !important;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(76, 162, 217, 0.25);
+}
+
+.table-custom tbody tr:hover {
+    background-color: rgba(76, 162, 217, 0.12);
+}
+
+/* Footer Mahasiswa */
+footer {
+    margin-top: auto;
+    font-size: 0.82rem;
+    background-color: #FFFFFF;
+    border-top: 2px solid var(--brand-sky);
+    padding: 18px 0;
+    color: var(--text-muted);
+}
